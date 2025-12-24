@@ -25,7 +25,6 @@ from ..upstreams.github import GithubUpstream
 from ..upstreams.regex import RegexUpstream
 
 import json
-from ..nvchecker.missing_check import check_main
 from ..nvchecker.missing_check2 import MissingVersionChecker, load_local_versions_from_dir, write_report,load_local_versions_from_inventory_json
 
 

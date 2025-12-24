@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ruyi-packaging-checker"
+version = "0.1.0"
+description = "Ruyi SDK packaging tools"
+authors = ["weilinfox <sakurakaze.fox@gmail.com>", "Cyl18 <cyl18a@gmail.com>"]
+license = "MIT"
+packages = [{ include = "ruyi_packages" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+nvchecker = { git = "https://github.com/lilydjwg/nvchecker.git" }
+ruyi = { git = "https://github.com/ruyisdk/ruyi.git" }  # 从git仓库拉取ruyi
+
+[tool.poetry.scripts]
+ruyi-pack = "ruyi_packages.cli:main"  # 命令行入口（按实际代码调整）
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
