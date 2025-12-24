@@ -11,7 +11,7 @@ from typing import Dict, List
 
 from .utils import ensure_dir
 from ..config.const import basedir, nvchecker_datadir, riko_datadir, ruyi_datadir, ruyi_cache_dir, ruyi_state_dir, \
-    ruyi_data_dir, ruyi_config_dir, ruyi_config, ruyi_config_extra, nvchecker_config, nvchecker_result, nvchecker_key
+    ruyi_data_dir, ruyi_config_dir, ruyi_config, ruyi_config_extra, nvchecker_config, nvchecker_result, nvchecker_key, nvchecker_local_ver
 from ..rikoriko import get_riko
 
 logger = logging.getLogger(__name__)
@@ -61,7 +61,7 @@ def check() -> None:
     :return:
     """
     _ensure_paths()
-
+    #'/home/jxy/桌面/PR3/ruyi-packaging-checker/cache/ruyi/config/ruyi/config.toml'
     with open(ruyi_config_dir / "ruyi" / "config.toml", "w") as cfg:
         cfg.write(ruyi_config + "\n" + ruyi_config_extra)
 
@@ -83,13 +83,16 @@ def check() -> None:
     if ret != 0:
         raise subprocess.CalledProcessError(ret, cmd, output)
 
+    #'/home/jxy/桌面/PR3/ruyi-packaging-checker/cache/ruyi/cache'/ruyi/packages-index
     if not (ruyi_cache_dir / "ruyi" / "packages-index").exists():
         raise FileNotFoundError(ruyi_cache_dir / "ruyi" / "packages-index")
 
     # nvchecker config/old_ver
     logger.info("prepare for `nvchecker`")
-    get_riko().generate_nvchecker_config()
-    get_riko().generate_nvchecker_old_ver()
+    get_riko().generate_nvchecker_config()##/home/jxy/桌面/PR3/ruyi-packaging-checker/cache/nvchecker/nvchecker.toml
+    get_riko().generate_nvchecker_old_ver()#根据ruyi_packages，packages-index生成ruyi_packages的old_ver.json供nvchecker使用
+    get_riko().generate_local_inventory(nvchecker_local_ver)#根据ruyi_packages，packages-index生成ruyi_packages的old_ver.json供nvchecker使用
+
 
     # run nvchecker
     logger.info("run `nvchecker`")
@@ -125,3 +128,7 @@ def check() -> None:
 
     if not nvchecker_result.exists():
         raise FileNotFoundError(nvchecker_result)
+
+
+
+

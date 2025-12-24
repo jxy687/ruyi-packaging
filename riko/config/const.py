@@ -17,6 +17,7 @@ nvchecker_config = nvchecker_datadir / "nvchecker.toml"
 nvchecker_result = nvchecker_datadir / "result.json"
 nvchecker_old_ver = nvchecker_datadir / "old_ver.json"
 nvchecker_new_ver = nvchecker_datadir / "new_ver.json"
+nvchecker_local_ver = nvchecker_datadir / "local_ver.json"
 nvchecker_key = basedir / "config" / "nvchecker_keyfile.toml"
 """
 nvchecker files
@@ -58,4 +59,9 @@ remote = "https://mirror.iscas.ac.cn/git/ruyisdk/packages-index.git"
 ''' if use_ruyi_iscas_repo else ""
 """
 ruyi extra config
+"""
+
+nvchecker_miss_ver = nvchecker_datadir / "missing_versions.json"
+"""
+nvchecker missing versions output file
 """

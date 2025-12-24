@@ -10,6 +10,10 @@ packages = [{ include = "ruyi_packages" }]
 python = ">=3.10"
 nvchecker = { git = "https://github.com/lilydjwg/nvchecker.git" }
 ruyi = { git = "https://github.com/ruyisdk/ruyi.git" }  # 从git仓库拉取ruyi
+semver = "^3.0.4"
+tomli-w = "^1.2.0"
+tomli = "^2.3.0"
+pygithub = "^2.8.1"
 
 [tool.poetry.scripts]
 ruyi-pack = "ruyi_packages.cli:main"  # 命令行入口（按实际代码调整）

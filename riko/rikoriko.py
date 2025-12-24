@@ -80,6 +80,82 @@ class Riko:
         with open(nvchecker_old_ver, "w") as f:
             json.dump(format_data, f, indent=2)
 
+    def generate_local_inventory(self, out_path: str) -> None:
+        """
+        生成“本地库存版本清单”，用于版本缺失检查：
+        - 对每个 upstream(name)，收集本地 packages-index 中存在的所有 upstream_version
+        - 同时计算 latest_upstream_version（基于 semver.Version 的 v.version 最大）
+        
+        输出 JSON 结构示例：
+        {
+        "version": 1,
+        "data": {
+            "openwrt-sifiveu": {
+            "latest": "24.10.4",
+            "versions": ["23.10.4", "24.10.4"]
+            },
+            ...
+        }
+        }
+        """
+        self._packages_index.load()
+
+        data: Dict[str, Dict] = {}
+
+        for up in self._ruyi_packages.get_upstreams().values():
+            name = up.get_name()
+            cat = self._packages_index.get_category(up.get_category())
+
+            # 收集“本地所有版本”
+            all_versions: Dict[str, semver.Version] = {}  # upstream_version -> semver.Version
+            latest_sem = semver.Version(0, 0, 0)
+            latest_upstream = ""
+
+            for pkg in up.get_combos():
+                # 取某个 pkg 在 packages-index 里的所有版本（过滤空 upstream_version）
+                versions = self.get_packages_index_all_versions(cat.get_name(), pkg)
+
+                for pv in versions:
+                    if pv.upstream_version is None or pv.upstream_version == "":
+                        continue
+                    # 用 upstream_version 去重；并保存其 semver 值（用于排序/选最新）
+                    all_versions[pv.upstream_version] = pv.version
+
+                    if pv.version.compare(latest_sem) > 0:
+                        latest_sem = pv.version
+                        latest_upstream = pv.upstream_version
+
+            # 排序输出（按 semver 从小到大）
+            sorted_versions = sorted(all_versions.items(), key=lambda kv: kv[1])
+            versions_list = [u for u, _ in sorted_versions]
+
+            data[name] = {
+                "latest": latest_upstream if latest_upstream else None,
+                "versions": versions_list,
+            }
+
+        output = {"version": 1, "data": data}
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(output, f, indent=2, ensure_ascii=False)
+
+
+    def get_packages_index_all_versions(self, category: str, pkg: str) -> List["PackageVersion"]:
+        """
+        返回 packages-index 中某个 (category, pkg) 的所有可用版本（manifest对象列表），
+        过滤 upstream_version 为空的条目。
+        """
+        out: List["PackageVersion"] = []
+        p = self._packages_index.get_category(category).get_package(pkg)
+
+        for v in p.get_versions():
+            if v.upstream_version is None or v.upstream_version == "":
+                continue
+            # 为了和你现有 get_packages_index_latest() 一致，这里返回 manifest（而不是裸 v）
+            manifest = self.get_packages_index_manifest(category, pkg, v.upstream_version)
+            if manifest is not None:
+                out.append(manifest)
+
+        return out
     def get_nvchecker_results(self, event_or_level: str) -> List[Dict]:
         if event_or_level == "any":
             return self._nvchecker_result.get_data()
