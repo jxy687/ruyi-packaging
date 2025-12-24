@@ -1,0 +1,131 @@
+[
+  {
+    "logger_name": "nvchecker.core",
+    "name": "bianbu-k1",
+    "version": "v3.0.1",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "openbsd",
+    "version": "7.8",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "ubuntu-cdimage",
+    "version": "26.04",
+    "revision": null,
+    "old_version": "25.04",
+    "event": "updated",
+    "level": "info"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "openwrt-sifiveu",
+    "version": "24.10.5",
+    "revision": null,
+    "old_version": "24.10.4",
+    "event": "updated",
+    "level": "info"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "redleafos-nanhu",
+    "version": "20250927",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "revyos-sg2042",
+    "version": "20251218",
+    "revision": null,
+    "old_version": "20251115",
+    "event": "updated",
+    "level": "info"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "revyos-lpi4amain",
+    "version": "20240127",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "revyos-meles",
+    "version": "20251115",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "revyos-lcon4a",
+    "version": "20251115",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "rockos-megrez",
+    "version": "20250630_20250818",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "revyos-laptop4a",
+    "version": "20251115",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "revyos-lpi4a",
+    "version": "20251115",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "freebsd",
+    "version": "15.0",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "duo-buildroot-sdk",
+    "version": "v1.1.4",
+    "url": "https://github.com/milkv-duo/duo-buildroot-sdk/releases/tag/v1.1.4",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "mars-buildroot-sdk",
+    "version": "V1.0.6",
+    "url": "https://github.com/milkv-mars/mars-buildroot-sdk/releases/tag/V1.0.6",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "LicheeRV-Nano-Build",
+    "version": "20251202",
+    "url": "https://github.com/sipeed/LicheeRV-Nano-Build/releases/tag/20251202",
+    "event": "up-to-date",
+    "level": "debug"
+  },
+  {
+    "logger_name": "nvchecker.core",
+    "name": "duo-buildroot-sdk-v2",
+    "version": "v2.0.1",
+    "url": "https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/tag/v2.0.1",
+    "event": "up-to-date",
+    "level": "debug"
+  }
+]

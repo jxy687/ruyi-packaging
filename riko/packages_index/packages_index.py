@@ -14,7 +14,6 @@ class PackagesIndex:
         self._categories: Dict[str, Category] = {}
 
     def load(self) -> None:
-
         if not os.path.exists(self._path / 'manifests'):
             raise FileNotFoundError(self._path / 'manifests')
 
