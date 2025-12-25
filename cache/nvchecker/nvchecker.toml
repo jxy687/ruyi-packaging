@@ -1,0 +1,88 @@
+[__config__]
+oldver = "old_ver.json"
+newver = "new_ver.json"
+
+[LicheeRV-Nano-Build]
+source = "github"
+github = "sipeed/LicheeRV-Nano-Build"
+use_latest_release = true
+
+[revyos-lpi4amain]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/"
+regex = "<a href=\"([\\d.]+)/\">[\\d.]+/</a>"
+
+[freebsd]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/FreeBSD/releases/riscv/riscv64/ISO-IMAGES/"
+regex = "<a href=\"([\\d.]+)/\" title=\"[\\d.]+\">[\\d.]+/</a>"
+
+[revyos-meles]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/revyos/extra/images/meles/"
+regex = "<a href=\"([\\d.]+)/\">[\\d.]+/</a>"
+
+[duo-buildroot-sdk]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk"
+use_latest_release = true
+
+[revyos-lcon4a]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/revyos/extra/images/lcon4a/"
+regex = "<a href=\"([\\d.]+)/\">[\\d.]+/</a>"
+
+[revyos-laptop4a]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/revyos/extra/images/laptop4a/"
+regex = "<a href=\"([\\d.]+)/\">[\\d.]+/</a>"
+
+[openwrt-sifiveu]
+source = "regex"
+url = "https://mirrors.tuna.tsinghua.edu.cn/openwrt/releases/"
+regex = "<a href=\"([\\d.]+)/\" title=\"[\\d.]+\">[\\d.]+/</a>"
+
+[openbsd]
+source = "regex"
+url = "https://mirrors.tuna.tsinghua.edu.cn/OpenBSD/"
+regex = "<a href=\"([\\d.]+)/\" title=\"[\\d.]+\">[\\d.]+/</a>"
+
+[revyos-lpi4a]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/"
+regex = "<a href=\"([\\d.]+)/\">[\\d.]+/</a>"
+
+[bianbu-k1]
+source = "regex"
+url = "https://archive.spacemit.com/image/k1/version/bianbu/"
+regex = "<a href=\"(v[\\d.]+)/\">[v\\d.]+/</a>"
+
+[duo-buildroot-sdk-v2]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk-v2"
+use_latest_release = true
+
+[redleafos-nanhu]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/redleafos/extra/images/"
+regex = "<a href=\"([\\d.]+)/\">[\\d.]+/</a>"
+
+[ubuntu-cdimage]
+source = "regex"
+url = "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/"
+regex = "<a href=\"([\\d.]+)/\" title=\"[\\d.]+\">[\\d.]+/</a>"
+
+[rockos-megrez]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/rockos/images/generic/"
+regex = "<a href=\"([\\d.]+_[\\d.]+)/\">[\\d.]+_[\\d.]+/</a>"
+
+[revyos-sg2042]
+source = "regex"
+url = "https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/"
+regex = "<a href=\"([\\d.]+)/\">[\\d.]+/</a>"
+
+[mars-buildroot-sdk]
+source = "github"
+github = "milkv-mars/mars-buildroot-sdk"
+use_latest_release = true

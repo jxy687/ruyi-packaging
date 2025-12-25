@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "data": {
+    "LicheeRV-Nano-Build": {
+      "version": "20251202"
+    },
+    "revyos-lpi4amain": {
+      "version": "20240127"
+    },
+    "freebsd": {
+      "version": "15.0"
+    },
+    "revyos-meles": {
+      "version": "20251115"
+    },
+    "duo-buildroot-sdk": {
+      "version": "v1.1.4"
+    },
+    "revyos-lcon4a": {
+      "version": "20251115"
+    },
+    "revyos-laptop4a": {
+      "version": "20251115"
+    },
+    "openwrt-sifiveu": {
+      "version": "24.10.4"
+    },
+    "openbsd": {
+      "version": "7.8"
+    },
+    "revyos-lpi4a": {
+      "version": "20251115"
+    },
+    "bianbu-k1": {
+      "version": "v3.0.1"
+    },
+    "duo-buildroot-sdk-v2": {
+      "version": "v2.0.1"
+    },
+    "redleafos-nanhu": {
+      "version": "20250927"
+    },
+    "ubuntu-cdimage": {
+      "version": "25.04"
+    },
+    "rockos-megrez": {
+      "version": "20250630_20250818"
+    },
+    "revyos-sg2042": {
+      "version": "20251115"
+    },
+    "mars-buildroot-sdk": {
+      "version": "V1.0.6"
+    }
+  }
+}
